@@ -1,0 +1,95 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tripviewer-ingress
+  namespace: api
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api/poi
+        pathType: Prefix
+        backend:
+          service:
+            name: poi
+            port:
+              number: 80
+      - path: /swagger/docs/poi
+        pathType: Prefix
+        backend:
+          service:
+            name: poi
+            port:
+              number: 80
+      - path: /api/trips
+        pathType: Prefix
+        backend:
+          service:
+            name: trips
+            port:
+              number: 80
+      - path: /api/docs/trips
+        pathType: Prefix
+        backend:
+          service:
+            name: trips
+            port:
+              number: 80
+      - path: /api/json
+        pathType: Prefix
+        backend:
+          service:
+            name: trips
+            port:
+              number: 80
+      - path: /api/user-java
+        pathType: Prefix
+        backend:
+          service:
+            name: user-java
+            port:
+              number: 80
+      - path: /api/docs/user-java
+        pathType: Prefix
+        backend:
+          service:
+            name: user-java
+            port:
+              number: 80
+      - path: /api/documentation/user-java
+        pathType: Prefix
+        backend:
+          service:
+            name: user-java
+            port:
+              number: 80
+      - path: /api/swagger-resources
+        pathType: Prefix
+        backend:
+          service:
+            name: user-java
+            port:
+              number: 80
+      - path: /api/api-docs
+        pathType: Prefix
+        backend:
+          service:
+            name: user-java
+            port:
+              number: 80
+      - path: /api/user
+        pathType: Prefix
+        backend:
+          service:
+            name: userprofile
+            port:
+              number: 80
+      - path: /api/docs/user
+        pathType: Prefix
+        backend:
+          service:
+            name: userprofile
+            port:
+              number: 80

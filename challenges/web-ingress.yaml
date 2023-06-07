@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "{{CHANGEME - nginx|addon-http-application-routing|etc}}"
+  name: tripviewer-ingress
+  namespace: web
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tripviewer
+            port:
+              number: 80
