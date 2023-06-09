@@ -28,10 +28,7 @@ az aks enable-addons \
     -n $CLUSTER_NAME \
     --addons azure-keyvault-secrets-provider
 
-export SECRETS_PROVIDER_IDENTITY=$(az aks show \
-    -g $RESOURCE_GROUP \
-    -n $CLUSTER_NAME \
-    --query "addonProfiles.azureKeyvaultSecretsProvider.identity.clientId" -o tsv)
+
 
 # Add the SQL connection info to the keyvault
 # Secrets can't have underscores in their names
